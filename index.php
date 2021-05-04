@@ -66,6 +66,9 @@
                             echo '<td>';
                             echo '<a href="editar.php?id='.$linha['id'].'">Editar</a>';
                             echo '</td>';
+                            echo '<td>';
+                            echo '<a href="delete.php?id='.$linha['id'].'">Excluir</a>';
+                            echo '</td>';
                             echo '</tr>';
                         }
                         echo '</tbody>';
