@@ -51,6 +51,7 @@
                         echo '<th>Endereço</th>';
                         echo '<th>Salário R$</th>';
                         echo '<th>Data </th>';
+                        echo '<th>Ação </th>';
                         echo '</tr>';
                         echo '</thead>';
 
@@ -62,6 +63,9 @@
                             echo '<td>' . $linha['endereco'] . '</td>';
                             echo '<td>' . $linha['salario'] . '</td>';
                             echo '<td>' . $linha['data'] . '</td>';
+                            echo '<td>';
+                            echo '<a href="editar.php?id='.$linha['id'].'">Editar</a>';
+                            echo '</td>';
                             echo '</tr>';
                         }
                         echo '</tbody>';
