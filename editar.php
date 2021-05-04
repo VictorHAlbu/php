@@ -3,6 +3,9 @@
 
     $nome = $endereco = $salario = $data = '';
     if(isset($_POST['id']) && !empty($_POST['id'])){
+     if (isset($_POST['id'])) {
+        $id = $_POST['id'];
+    }
     if (isset($_POST['nome'])) {
         $nome = $_POST['nome'];
     }
@@ -16,7 +19,7 @@
         $data = $_POST['data'];
     }
 
-    $sql = "UPDATE funcionario SET nome='{$nome}', endereco='{$endereco}', salario='{$salario}', data='{$data}' WHERE id ={$id}";
+    $sql = "UPDATE funcionario SET nome='{$nome}', endereco='{$endereco}', salario='{$salario}', data='{$data}' WHERE id={$id}";
     
     if (mysqli_query($conexao, $sql)) {
             header("location:index.php");
@@ -27,9 +30,10 @@
     }else{
 
     if(isset($_GET['id'])){
+
         $id = trim($_GET['id']);
 
-        $sql = "SELECT * FROM funcionario WHERE id ={$id}";
+        $sql = "SELECT * FROM funcionario WHERE id={$id}";
 
         $resultado =  mysqli_query($conexao, $sql);
 
@@ -74,7 +78,7 @@
                             <input type="text" name="salario" class="form-control" value='<?php echo $salario; ?>'>
                             <label>Data</label>
                             <input type="text" name="data" class="form-control" value='<?php echo $data; ?>'>
-                            <input type="hidden" name="id" value="<?php echo $id; ?>">
+                            <input type="hidden" name="id" value='<?php echo $id; ?>'>
                             <input type="submit" class="btn btn-primary" value="Atualizar">
                             <a href="index.php" class="btn btn-secondary">Voltar</a>
                         </form>
