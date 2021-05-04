@@ -5,13 +5,14 @@
     //recebe o ID passado via GET
 
     //prepara minha query
-    $sql = "DELETE from funcionario WHERE id={$id} ";
+    $sql = "DELETE from funcionario WHERE id={$id}";
     
     $resultado =  mysqli_query($conexao, $sql);
 
     $linha = mysqli_fetch_array($resultado, MYSQLI_ASSOC);
     
     if (mysqli_query($conexao, $sql)) {
+        echo "Excluido com Sucesso!";
         header("lacation:index.php");
         exit();
     } else {
